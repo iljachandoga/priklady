@@ -34,8 +34,9 @@ function generateProblems(
         break;
 
       case "subtraction":
+        // aby výsledok bol kladný
         a = Math.floor(Math.random() * (max - min + 1)) + min;
-        b = Math.floor(Math.random() * (max - min + 1)) + min;
+        b = Math.floor(Math.random() * (a - min + 1)) + min; // b <= a
         correct = a - b;
         break;
 
@@ -46,10 +47,9 @@ function generateProblems(
         break;
 
       case "division":
-        b = Math.floor(Math.random() * (max - min + 1)) + 1; // nikdy nula
-        const multiplier = Math.floor(Math.random() * (max - min + 1)) + min;
-        a = b * multiplier;
-        correct = a / b;
+        correct = Math.floor(Math.random() * 10) + 1; // výsledok 1–10
+        b = Math.floor(Math.random() * (max - min + 1)) + min; // deliteľ v rozsahu
+        a = correct * b; // dividend = výsledok * deliteľ
         break;
     }
 
@@ -107,7 +107,7 @@ export default function Page() {
 
       if (value === "") {
         problem.isCorrect = null;
-      } else if (parseFloat(value) === problem.correct) {
+      } else if (parseInt(value) === problem.correct) {
         problem.isCorrect = true;
       } else {
         problem.isCorrect = false;
@@ -271,4 +271,3 @@ export default function Page() {
     </div>
   );
 }
-
