@@ -47,9 +47,9 @@ function generateProblems(
         break;
 
       case "division":
-        correct = Math.floor(Math.random() * 10) + 1; // výsledok 1–10
-        b = Math.floor(Math.random() * (max - min + 1)) + min; // deliteľ v rozsahu
-        a = correct * b; // dividend = výsledok * deliteľ
+        correct = Math.floor(Math.random() * 10) + 1;
+        b = Math.floor(Math.random() * (max - min + 1)) + min;
+        a = correct * b;
         break;
     }
 
